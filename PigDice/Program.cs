@@ -33,19 +33,32 @@ namespace PigDice {
 
 		static void Main(string[] args) {
 
-			var hiscore = 0;
+			//var hiscore = 0;
+			//var start = getStartTime();
+			//Console.WriteLine(start);
+			//for (int i = 0; i < 1000000; i++) {
+			//	var score = PlayPigDice();
+			//	if (score > hiscore) {
+			//		hiscore = score;
+			//	}
+			//}
+			//var end = getEndTime();
+			//Console.WriteLine($"Score = {hiscore}");
+			//Console.WriteLine(end);
+
 			var start = getStartTime();
 			Console.WriteLine(start);
-			for (int i = 0; i < 1000000; i++) {
-				var score = PlayPigDice();
-				if (score > hiscore) {
-					hiscore = score;
-				}
+			var hiscore = 400;
+			long counter = 1;
+			var score = PlayPigDice();
+			while (score < hiscore) {
+				score = PlayPigDice();
+				counter++;
 			}
 			var end = getEndTime();
-			Console.WriteLine($"Score = {hiscore}");
+			
+			Console.WriteLine($"Score = {score} took {counter} attempts.");
 			Console.WriteLine(end);
-
 
 
 
